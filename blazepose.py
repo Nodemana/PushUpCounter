@@ -20,7 +20,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 # Replace 'path_to_your_video' with the actual path to your video
-cap = cv2.VideoCapture('PushUpTest.mov')
+cap = cv2.VideoCapture('PushUpTest.mov') # Change this to cap = cv2.VideoCapture(0) to use your webcam.
 
 # Desired width and height
 width = 640
@@ -45,7 +45,6 @@ with mp_pose.Pose(static_image_mode=False, model_complexity=1, min_detection_con
             # Extract Joints
             try:
                 landmarks = results.pose_landmarks.landmark
-
                 # Get coordinates
                 shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
                 elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
